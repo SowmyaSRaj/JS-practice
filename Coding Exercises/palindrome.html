@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Is Palindrome or Not</title>
+  </head>
+  <body>
+    <script>
+      function isPalindrome1(inputString) {
+        /*This function first removes non-alphanumeric characters and converts the string to lowercase
+         to ensure the comparison is case-insensitive and doesn't consider special characters. */ 
+         let cleanString = inputString.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+
+         let reverseString = cleanString.split("").reverse().join("");
+         if(cleanString === reverseString) return 'The given string is palindrome';
+         else return 'The given string is not a palindrome';
+      }
+      let input1 = isPalindrome1("inputString");
+      let input2 = isPalindrome1("Racecar");
+      console.log(input1, input2);
+    </script>
+
+  </body>
+</html>
