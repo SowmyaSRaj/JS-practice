@@ -7,19 +7,38 @@
   </head>
   <body>
     <script>
+      /* Firts method using split, reverse, and join */
       function isPalindrome1(inputString) {
-        /*This function first removes non-alphanumeric characters and converts the string to lowercase
-         to ensure the comparison is case-insensitive and doesn't consider special characters. */ 
-         let cleanString = inputString.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+        //This function first removes non-alphanumeric characters and converts the string to lowercase to ensure the comparison is case-insensitive and doesn't consider special characters.
+        let cleanString = inputString
+          .replace(/[^a-zA-Z0-9]/g, "")
+          .toLowerCase();
 
-         let reverseString = cleanString.split("").reverse().join("");
-         if(cleanString === reverseString) return 'The given string is palindrome';
-         else return 'The given string is not a palindrome';
+        let reverseString = cleanString.split("").reverse().join("");
+
+        // Check if the cleaned string and its reverse are the same
+        if (cleanString === reverseString)
+          return "The given string is palindrome";
+        else return "The given string is not a palindrome";
       }
       let input1 = isPalindrome1("inputString");
       let input2 = isPalindrome1("Racecar");
       console.log(input1, input2);
-    </script>
 
+      /* Second method using for loop */
+      function isPalindrome2(input) {
+        let string = input.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+        let stringLength = string.length;
+
+        for (let i = 0; i < stringLength / 2; i++) {
+          if (string[i] !== string[stringLength - 1 - i]) // (strig[0] !== string[6]) r!==r
+          return false;
+        }
+        return true;
+      }
+      let inputString1 = isPalindrome2("Racecar");
+      let inputString2 = isPalindrome2("Madam");
+      console.log(inputString1, inputString2);
+    </script>
   </body>
 </html>
