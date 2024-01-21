@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Count the number of Vowels</title>
+  </head>
+  <body>
+    <script>
+      /* USing for loop */
+      function vowelsCount1(inputString) {
+        const vowels = "aeiouAEIOU";
+        let count = 0;
+        for (let i = 0; i < inputString.length; i++) {
+          if (vowels.includes(inputString[i])) count++;
+        }
+        return count;
+      }
+      let count1 = vowelsCount1("inputString");
+      console.log(count1);
+
+      /* Using regular expression */
+      function vowelsCount2(inputString) {
+        let vowelRegEx = /[aeiouAEIOU]/g;
+        let matches = inputString.match(vowelRegEx);
+        return matches ? matches.length : 0;
+      }
+
+      let count2 = vowelsCount2("aeiou");
+      console.log(count2);
+
+      /* Using reduce method */
+      function vowelsCount3(inputString) {
+        // let count = 0;
+        const vowels = "aeiouAEIOU";
+        return inputString.split("").reduce((count, char)=>{
+            if(vowels.includes(char)) {
+                return count + 1;
+                /* In the context of reduce, you should avoid using the post-increment operator (count++) directly within the return statement. Instead, you should use the pre-increment operator (++count) or simply count + 1 to ensure that the incremented value is returned. */
+            }
+            return count;
+        }, 0);
+      }
+
+      let count3 = vowelsCount3("aeiou");
+      console.log(count3);
+
+      /* Using forEach loop */
+      function vowelsCount4(inputString) {
+        let count = 0;
+        let vowels ="aeiouAEIOU";
+        inputString.split("").forEach(char=>{
+            if(vowels.includes(char)) return count++;
+        });
+        return count;
+      }
+      let count4 = vowelsCount4("Vowels Count");
+      console.log(count4);
+
+    </script>
+  </body>
+</html>
