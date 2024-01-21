@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse A String</title>
+  </head>
+  <body>
+    <script>
+      /* Using split, join, and reverse*/
+      function reverseString1(inputString) {
+        let splitString = inputString.split("");
+        let reverseInputString = splitString.reverse();
+        let joinString = reverseInputString.join("");
+        return joinString;
+
+        // in single line
+        let reverse = inputString.split("").reverse().join("");
+        return reverse;
+      }
+      let reversedString1 = reverseString1("outputString");
+      console.log(reversedString1);
+
+      /* Using loop*/
+      function reverseString2(inputString) {
+        let reversed = "";
+        for (let i = inputString.length - 1; i >= 0; i--) {
+          reversed += inputString[i];
+        }
+        return reversed;
+      }
+
+      let reversedString2 = reverseString2("outputString");
+      console.log(reversedString2);
+
+      /* Using reduce */
+
+      function reverseString3(inputString) {
+        return inputString.split("").reduce((acc, current) => {
+          return current + acc;
+        }, "");
+      }
+      let reversedString3 = reverseString3("outputString");
+      console.log(reversedString3);
+    </script>
+  </body>
+</html>
