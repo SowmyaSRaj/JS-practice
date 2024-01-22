@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove All Spaces</title>
+  </head>
+  <body>
+    <script>
+      /* Using replaceAll and replace with regular expression*/
+      function replaceAllSpaces1(inputString) {
+        // return inputString.replaceAll(" ", "");
+        return inputString.replace(/\s/g, ""); // the regular expression /\s/g to match all space characters (including spaces, tabs, and newlines)
+      }
+      let noSpaceString1 = replaceAllSpaces1("remove all the spaces");
+      console.log(noSpaceString1);
+
+      /* Using split and join */
+      function replaceAllSpaces2(inputString) {
+        return inputString.split(" ").join("");
+      }
+      let noSpaceString2 = replaceAllSpaces2("remove all the spaces");
+      console.log(noSpaceString2);
+
+      /* Using for loop */
+      function replaceAllSpaces3(inputString) {
+        let result = "";
+        for (let i = 0; i <= inputString.length - 1; i++) {
+          if (inputString[i] !== " ") {
+            result += inputString[i];
+          }
+        }
+        return result;
+      }
+      let noSpaceString3 = replaceAllSpaces3("remove all the spaces");
+      console.log(noSpaceString3);
+    </script>
+  </body>
+</html>
