@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse The Case Of Characters In A String</title>
+  </head>
+  <body>
+    <script>
+      /* Using for loop */
+      function reverseCase1(inputString) {
+        let reversedString = "";
+        for (let i = 0; i <= inputString.length - 1; i++) {
+          let char = inputString[i];
+          if (inputString[i] === char.toLowerCase()) {
+            reversedString += char.toUpperCase();
+          } else {
+            reversedString += char.toLowerCase();
+          }
+        }
+        return reversedString;
+      }
+
+      let result1 = reverseCase1("inputString");
+      console.log(result1);
+
+      /* Using array and map */
+      function reverseCase2(inputString) {
+        return inputString
+          .split("")
+          .map((char) => {
+            return char === char.toLowerCase()
+              ? char.toUpperCase()
+              : char.toLowerCase();
+          })
+          .join("");
+      }
+
+      let result2 = reverseCase2("inputString");
+      console.log(result2);
+
+      /* Using regular expression */
+      function reverseCase3(inputString) {
+        return inputString.replace(/./g, char => {
+            return char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase();
+        })
+      }
+
+      let result3 = reverseCase3("Hello World!");
+      console.log(result3);
+    </script>
+  </body>
+</html>
