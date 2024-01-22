@@ -8,15 +8,15 @@
   <body>
     <script>
       /* using replace */
-      function nonAlphaNumeric(inputString) {
+      function removeNonAlphaNumeric1(inputString) {
         return inputString.replace(/[^a-zA-Z0-9]/g, "");
       }
 
-      let result = nonAlphaNumeric("Hello World!123");
+      let result = removeNonAlphaNumeric1("Hello World!123");
       console.log(result);
-      
+
       /* usig loop */
-      function removeNonAlphanumeric(inputString) {
+      function removeNonAlphanumeric1(inputString) {
         let result = "";
         for (let i = 0; i < inputString.length; i++) {
           if (/[a-zA-Z0-9]/.test(inputString[i])) {
@@ -26,6 +26,27 @@
         }
         return result;
       }
+
+      /* Using && and || */
+      function removeNonAlphanumeric1(inputString) {
+        let resultArray = [];
+
+        for (let i = 0; i < inputString.length; i++) {
+          if (
+            (inputString[i] >= "a" && inputString[i] <= "z") ||
+            (inputString[i] >= "A" && inputString[i] <= "Z") ||
+            (inputString[i] >= "0" && inputString[i] <= "9")
+          ) {
+            resultArray.push(inputString[i]);
+          }
+        }
+        return resultArray.join("");
+      }
+
+      let originalString = "Hello, @world!123";
+      let cleanedString = removeNonAlphanumeric1(originalString);
+
+      console.log(cleanedString); 
     </script>
   </body>
 </html>
