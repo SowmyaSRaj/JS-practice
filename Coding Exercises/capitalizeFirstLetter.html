@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capitalize The First Letter</title>
+  </head>
+  <body>
+    <script>
+      /* Using map() and arrow function */
+      function firstLetterCapital1(inputString) {
+        let words = inputString.split(" ");
+        const capitalizedWords = words.map((word) => {
+          return word.charAt(0).toUpperCase() + word.slice(1);
+        });
+        return capitalizedWords.join(" ");
+      }
+
+      let capital1 = firstLetterCapital1(
+        "the first letter should be in capital1."
+      );
+      console.log(capital1);
+
+      /* Using for loop */
+      function firstLetterCapital2(inputString) {
+        let words = inputString.split(" ");
+        for (let i = 0; i < words.length; i++) {
+          words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+        }
+        return words.join(" ");
+      }
+
+      let capital2 = firstLetterCapital2(
+        "the first letter should be in capital2."
+      );
+      console.log(capital2);
+
+      /* Using for each loop */
+      function firstLetterCapital3(inputString) {
+        let words = inputString.split(" ");
+        let capitalizedWords = [];
+        words.forEach(word => {
+          capitalizedWords.push(word.charAt(0).toUpperCase() + word.slice(1));
+        });
+
+        return capitalizedWords.join(" ");
+      }
+      let capital3 = firstLetterCapital3(
+        "the first letter should be in capital3."
+      );
+      console.log(capital3);
+      
+    </script>
+  </body>
+</html>
