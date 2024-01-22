@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Contains Only Digits</title>
+</head>
+<body>
+    <script>
+        function onlyDigits(inputString){
+            for(let i = 0; i<inputString.length; i++){
+                if(isNaN(inputString[i])) return false
+            }
+            return true;
+        }
+        let digits = onlyDigits("123456")
+        console.log(digits);
+
+        /* Using regular function */
+        function containsOnlyDigits(inputString){
+            return /^\d+$/.test(inputString);
+        }
+        let numbers = containsOnlyDigits("123456abc")
+        console.log(numbers);
+    </script>
+</body>
+</html>
