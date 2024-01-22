@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Non Alpha Numeric</title>
+  </head>
+  <body>
+    <script>
+      /* using replace */
+      function nonAlphaNumeric(inputString) {
+        return inputString.replace(/[^a-zA-Z0-9]/g, "");
+      }
+
+      let result = nonAlphaNumeric("Hello World!123");
+      console.log(result);
+      
+      /* usig loop */
+      function removeNonAlphanumeric(inputString) {
+        let result = "";
+        for (let i = 0; i < inputString.length; i++) {
+          if (/[a-zA-Z0-9]/.test(inputString[i])) {
+            // In this function, the test method of a regular expression is used to check if each character in the input string is alphanumeric (letters or digits) and append it to the result string
+            result += inputString[i];
+          }
+        }
+        return result;
+      }
+    </script>
+  </body>
+</html>
