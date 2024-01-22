@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Occurrence Of A Specific Character</title>
+  </head>
+  <body>
+    <script>
+      /* Using for loop */
+      function occurences1(inputString, targetCharacter) {
+        let count = 0;
+        for (let i = 0; i <= inputString.length - 1; i++) {
+          if (inputString[i] === targetCharacter) {
+            count++;
+          }
+        }
+        return count;
+      }
+
+      let charater1 = occurences1("inputstring", "t");
+      console.log(charater1);
+
+      /* Using split method */
+      function occurences2(inputString, targetCharacter) {
+        let subStrings = inputString.split(targetCharacter);
+        console.log(subStrings.length); // 3
+        console.log(subStrings); // (4) ['', 'nputstr', 'ng', '']
+        return subStrings.length - 1;
+        /* The function calculates the number of occurrences of the targetCharacter by subtracting 1 from the length of the substrings array. The reason for subtracting 1 is that when you split a string using a specific character as the delimiter, the resulting array contains one more element than the number of occurrences. 
+           By subtracting 1, you get the actual count of occurrences.  */
+      }
+
+      let charater2 = occurences2("inputstringi", "i");
+      console.log(charater2);
+
+      /*  Using a regular expression */
+      function occurences3(inputString, targetCharacter) {
+        const regex = new RegExp(targetCharacter, "g");
+        // the 'g' flag is added to make sure the regular expression searches globally (i.e., it finds all occurrences, not just the first one).
+        const matches = inputString.match(regex);
+        return matches ? matches.length : 0;
+      }
+      let charater3 = occurences3("inputstringi", "i");
+      console.log(charater3);
+    </script>
+  </body>
+</html>
