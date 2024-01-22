@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Contains Only Letters</title>
+</head>
+<body>
+    <script>
+        /* using loop */
+        function containsLetters(inputString){
+            for(let i = 0; i<= inputString.length-1; i++){
+                if(!/[a-zA-Z]/.test(inputString[i])) return false;
+            }
+            return true;
+        }
+        let letters = containsLetters("inputString123");
+        console.log(letters);
+        
+
+        /* only regular expressions */
+        function containLetters(inputString){
+            return /^[a-zA-Z]+$/.test(inputString);
+        }
+
+        let letter = containLetters("inputString");
+        console.log(letter);
+    </script>
+</body>
+</html>
