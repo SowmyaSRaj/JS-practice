@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Second Largest Number</title>
+  </head>
+  <body>
+    <script>
+      /* Using MAth.max method */
+      let array = [20, 10, 96, 89, 21, 11, 130];
+      function secondLargest1(arr) {
+        let largestNumber = Math.max(...arr);
+        let index = arr.indexOf(largestNumber);
+        arr.splice(index, 1);
+        return (secondMax = Math.max(...arr));
+      }
+      let result = secondLargest1(array);
+      console.log(result);
+
+      let numbers = [20, 810, 96, 89, 212, 111, 130];
+
+      /* USing sort method */
+      function secondLargest2(arr) {
+        arr.sort((a, b) => {
+          return b - a;
+        });
+        return arr[1];
+      }
+      let output = secondLargest2(numbers);
+      console.log(output);
+
+      /* Using for loop */
+      let numbers2 = [20, 810, 96, 89, 900, 30, 130];
+
+      function secondLargest3(arr) {
+        let largestNumber = arr[0];
+        let secondLargest = arr[0];
+        for (let i = 0; i <= arr.length - 1; i++) {
+          if (arr[i] > largestNumber) {
+            secondLargest = largestNumber;
+            largestNumber = arr[i];
+          } else if (arr[i] > secondLargest && arr[i] !== largestNumber) {
+            secondLargest = arr[i];
+          }
+        }
+        return secondLargest;
+      }
+
+      let output2 = secondLargest2(numbers2);
+      console.log(output2);
+    </script>
+  </body>
+</html>
