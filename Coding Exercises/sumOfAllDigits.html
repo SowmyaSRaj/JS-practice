@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Sum Of All The Digits Of An Array</title>
+  </head>
+  <body>
+    <script>
+      /* Adding each digit */
+      let array = [123, 456, 789];
+      // output = 45;
+      function sumOfDigitsInArray(arr) {
+        let totalSum = 0;
+        arr.forEach((num) => {
+          // Convert the number to a string to iterate over its digits
+          let numString = num.toString();
+          for (let i = 0; i <= numString.length - 1; i++) {
+            // Convert each digit character back to integer and add to totalSum
+            totalSum += parseInt(numString[i]);
+          }
+        });
+        return totalSum;
+      }
+      console.log("Array:", array);
+      console.log("Sum of digits in the array:", sumOfDigitsInArray(array)); // 45
+
+      /* output = 1368 */
+      function sumOfDigitsInArray2(arr) {
+        let sum = 0;
+        arr.forEach((num) => {
+          sum += num;
+        });
+        return sum;
+      }
+      console.log("Array:", array);
+      console.log("Sum of digits in the array:", sumOfDigitsInArray2(array));
+
+      /* Using reduce */
+      function sumOfDigitsInArray3(arr) {
+        return arr.reduce((acc, value) => {
+          return acc + value;
+        });
+      }
+
+      let result = sumOfDigitsInArray3(array);
+      console.log(result);
+    </script>
+  </body>
+</html>
